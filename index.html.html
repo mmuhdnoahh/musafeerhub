@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MusafeerHub Malaysia — Compare Clearly. Verify Carefully.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3F2EC;
+    --bg-card:#FFFFFF;
+    --bg-alt:#EAE6D9;
+    --ink:#1B2420;
+    --ink-soft:#4A5550;
+    --primary:#0E3D36;
+    --primary-light:#145048;
+    --primary-pale:#E3ECE9;
+    --gold:#A9781F;
+    --gold-light:#C99A3E;
+    --gold-pale:#F3E9D2;
+    --brick:#A63D2E;
+    --brick-pale:#F5E4E0;
+    --verified:#1F7A5C;
+    --line:#D9D3C2;
+    --radius:10px;
+    --shadow: 0 2px 14px rgba(14,61,54,0.08);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    margin:0 0 .4em 0;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'Space Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  header.topbar{
+    position:sticky;top:0;z-index:50;
+    background:var(--primary);
+    color:#fff;
+    border-bottom:3px solid var(--gold);
+  }
+  .topbar-inner{
+    max-width:1180px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:50%;
+    border:2px dashed var(--gold-light);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:700;color:var(--gold-light);font-size:15px;
+    flex-shrink:0;
+  }
+  .brand-text{font-family:'Fraunces',serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;}
+  .brand-text small{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-light);}
+  nav.mainnav{display:flex;gap:4px;flex-wrap:wrap;}
+  nav.mainnav button{
+    background:none;border:none;color:#EDEAE0;
+    padding:8px 14px;border-radius:7px;font-size:14.5px;font-weight:500;
+    transition:background .15s, color .15s;
+  }
+  nav.mainnav button:hover{background:rgba(255,255,255,.08);}
+  nav.mainnav button.active{background:rgba(255,255,255,.14);color:#fff;}
+
+  section.page{display:none;padding:48px 0 80px;}
+  section.page.active{display:block;}
+
+  .hero{
+    background:var(--primary);
+    color:#F3F2EC;
+    padding:56px 0 64px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 22px 22px;
+    opacity:.5;
+  }
+  .hero-inner{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:start;}
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light);
+    border:1px solid rgba(201,154,62,.5);padding:5px 12px;border-radius:999px;margin-bottom:18px;
+  }
+  .hero h1{font-size:40px;color:#fff;max-width:520px;}
+  .hero p.lead{font-size:16.5px;color:#D8E2DE;max-width:480px;margin-bottom:26px;}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 20px;border-radius:8px;font-weight:600;font-size:14.5px;border:none;
+    transition:transform .12s, box-shadow .12s, background-color .15s;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-gold{background:var(--gold);color:#fff;}
+  .btn-gold:hover{background:var(--gold-light);}
+  .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5);}
+  .btn-outline:hover{border-color:#fff;}
+  .btn-primary{background:var(--primary);color:#fff;}
+  .btn-primary:hover{background:var(--primary-light);}
+  .btn-ghost{background:var(--primary-pale);color:var(--primary);}
+  .btn-ghost:hover{background:#dbe7e2;}
+  .btn-sm{padding:8px 14px;font-size:13px;}
+
+  /* Search card */
+  .search-card{
+    background:#fff;color:var(--ink);border-radius:14px;
+    padding:26px;box-shadow:0 12px 40px rgba(0,0,0,.25);
+  }
+  .search-card h3{font-size:16px;color:var(--primary);margin-bottom:14px;}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .field{display:flex;flex-direction:column;gap:4px;}
+  .field label{font-size:11.5px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;}
+  .field select, .field input{
+    padding:9px 10px;border:1.5px solid var(--line);border-radius:7px;font-size:14px;font-family:inherit;background:#fcfbf8;
+  }
+  .field select:focus, .field input:focus{outline:none;border-color:var(--primary);}
+  .search-card .btn{width:100%;justify-content:center;margin-top:16px;}
+
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
+  .section-head h2{font-size:26px;color:var(--primary);}
+  .eyebrow{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px;display:block;}
+  .band{padding:52px 0;}
+  .band-alt{background:var(--bg-alt);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+
+  /* Stamp badge */
+  .stamp{
+    display:inline-flex;align-items:center;gap:6px;
+    border:1.5px dashed var(--verified);
+    color:var(--verified);
+    border-radius:999px;
+    padding:4px 10px 4px 4px;
+    font-size:11px;font-weight:700;letter-spacing:.02em;
+    background:#F0F8F4;
+  }
+  .stamp .dot{
+    width:18px;height:18px;border-radius:50%;background:var(--verified);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;
+  }
+  .stamp.pending{border-color:var(--gold);color:var(--gold);background:var(--gold-pale);}
+  .stamp.pending .dot{background:var(--gold);}
+  .stamp-date{font-size:10px;color:var(--ink-soft);margin-top:3px;font-family:'Space Mono',monospace;}
+
+  /* Package card */
+  .pkg-card{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .pkg-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(14,61,54,0.12);}
+  .pkg-card .top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .pkg-card .agency-name{font-size:12.5px;color:var(--ink-soft);font-weight:600;}
+  .pkg-card h4{font-size:16px;margin:2px 0 0;color:var(--ink);}
+  .price{font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--primary);}
+  .price small{font-size:11px;color:var(--ink-soft);font-weight:400;font-family:'Inter',sans-serif;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;}
+  .tag{background:var(--primary-pale);color:var(--primary);padding:3px 8px;border-radius:6px;font-weight:600;}
+  .tag.alt{background:var(--gold-pale);color:var(--gold);}
+  .pkg-card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px;border-top:1px dashed var(--line);}
+  .checkbox-select{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-soft);cursor:pointer;}
+
+  .compare-layout{display:grid;grid-template-columns:250px 1fr;gap:26px;align-items:start;}
+  .filter-panel{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;
+    position:sticky;top:90px;
+  }
+  .filter-panel h4{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--primary);margin-bottom:12px;}
+  .filter-group{margin-bottom:16px;}
+  .filter-group label.fg-label{font-size:12px;font-weight:700;color:var(--ink);display:block;margin-bottom:6px;}
+  .filter-group select, .filter-group input[type=text]{width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:6px;font-size:13px;font-family:inherit;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{
+    border:1px solid var(--line);background:#fff;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:500;
+    transition:background .15s, color .15s, border-color .15s;
+  }
+  .chip.on{background:var(--primary);color:#fff;border-color:var(--primary);}
+  .pkg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;}
+  .compare-tray{
+    position:sticky;bottom:0;background:var(--primary);color:#fff;padding:14px 20px;border-radius:10px 10px 0 0;
+    display:flex;justify-content:space-between;align-items:center;margin-top:20px;box-shadow:0 -8px 24px rgba(0,0,0,.15);
+    z-index:10;
+  }
+
+  /* Comparison ledger table */
+  .ledger-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff;}
+  table.ledger{width:100%;border-collapse:collapse;font-size:13.5px;}
+  table.ledger th, table.ledger td{padding:11px 14px;text-align:left;border-bottom:1px dashed var(--line);white-space:nowrap;}
+  table.ledger th{background:var(--primary);color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:14px;position:sticky;top:0;}
+  table.ledger tr td:first-child{font-weight:700;color:var(--ink-soft);font-size:11.5px;text-transform:uppercase;letter-spacing:.03em;background:var(--bg-alt);position:sticky;left:0;}
+  table.ledger tbody tr:hover td{background:#FBF8F0;}
+  table.ledger tbody tr td:first-child:hover{background:var(--bg-alt);}
+
+  .agency-card{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:transform .12s, box-shadow .12s;
+  }
+  .agency-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(14,61,54,0.12);}
+  .agency-logo{
+    width:44px;height:44px;border-radius:999px;background:var(--primary-pale);color:var(--primary);
+    display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:17px;
+  }
+
+  /* Modal */
+  .modal-overlay{
+    display:none;position:fixed;inset:0;background:rgba(20,30,27,.55);z-index:100;
+    align-items:flex-start;justify-content:center;padding:60px 20px;overflow:auto;
+    backdrop-filter: blur(3px);
+  }
+  .modal-overlay.active{display:flex;}
+  .modal{background:#fff;border-radius:14px;max-width:640px;width:100%;padding:30px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.3);}
+  .modal-close{position:absolute;top:16px;right:18px;background:none;border:none;font-size:22px;color:var(--ink-soft);}
+  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:16px 0;}
+  .detail-item label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-soft);font-weight:700;}
+  .detail-item div{font-size:14px;margin-top:2px;}
+  .contact-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+
+  /* Scam Prevention */
+  .scam-hero{background:var(--brick-pale);border:1px solid #E4C4BC;border-radius:14px;padding:26px 30px;margin-bottom:30px;}
+  .scam-hero h2{color:var(--brick);}
+  .checklist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .checklist li{
+    background:#fff;border:1px solid var(--line);border-radius:9px;padding:14px 16px;display:flex;gap:10px;font-size:14px;
+  }
+  .checklist li .num{
+    font-family:'Space Mono',monospace;color:var(--gold);font-weight:700;flex-shrink:0;
+  }
+
+  /* Help Desk & Chat */
+  .help-tabs{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;}
+  .help-tab{
+    padding:10px 18px;border-radius:8px;border:1.5px solid var(--line);background:#fff;font-weight:600;font-size:14px;color:var(--ink-soft);
+  }
+  .help-tab.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+  .help-panel{display:none;}
+  .help-panel.active{display:block;}
+  .chat-window{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:12px;height:380px;display:flex;flex-direction:column;
+  }
+  .chat-log{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;}
+  .msg{max-width:75%;padding:10px 14px;border-radius:12px;font-size:13.5px;line-height:1.45;}
+  .msg.bot{background:var(--primary-pale);color:var(--ink);align-self:flex-start;border-bottom-left-radius:2px;}
+  .msg.user{background:var(--primary);color:#fff;align-self:flex-end;border-bottom-right-radius:2px;}
+  .chat-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);}
+  .chat-input-row input{flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;}
+  .chat-suggestions{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 12px;}
+  .chat-suggestions button{font-size:11.5px;background:var(--gold-pale);color:var(--gold);border:none;padding:5px 10px;border-radius:999px;transition:background .15s;}
+  .chat-suggestions button:hover{background:#ebd8b2;}
+
+  .agency-contact-list{display:flex;flex-direction:column;gap:10px;max-height:420px;overflow-y:auto;}
+  .agency-contact-row{
+    display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);
+    border-radius:999px;padding:12px 20px;font-size:13.5px;
+  }
+  .report-form{display:grid;gap:14px;max-width:520px;}
+  .report-form label{font-size:12.5px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;}
+  .report-form select, .report-form input, .report-form textarea{
+    width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;margin-top:4px;
+  }
+  .report-form textarea{min-height:90px;resize:vertical;}
+  .confirm-banner{
+    display:none;background:#EAF6F0;border:1px solid #BFE3D0;color:var(--verified);padding:12px 16px;border-radius:8px;font-size:13.5px;font-weight:600;margin-top:10px;
+  }
+
+  /* Toast Notification */
+  .toast-notification{
+    position:fixed;bottom:24px;right:24px;background:var(--brick);color:#fff;padding:12px 20px;border-radius:8px;
+    font-size:14px;font-weight:600;box-shadow:0 4px 18px rgba(0,0,0,0.25);z-index:1000;
+    opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity 0.25s ease, transform 0.25s ease;
+  }
+  .toast-notification.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+
+  .disclaimer-box{background:var(--bg-alt);border-left:4px solid var(--gold);padding:22px 26px;border-radius:8px;font-size:13.5px;color:var(--ink-soft);line-height:1.7;}
+  .disclaimer-box strong{color:var(--ink);}
+  footer{background:var(--primary);color:#D8E2DE;padding:38px 0;font-size:13px;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+  footer a{text-decoration:underline;color:#fff;}
+
+  .faq-item{border-bottom:1px solid var(--line);padding:14px 0;}
+  .faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;font-size:15px;}
+  .faq-a{display:none;font-size:14px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  .faq-item.open .faq-a{display:block;}
+
+  .demo-note{
+    background:#fff3cd;border:1px solid #e0c65a;color:#6b5510;font-size:12px;padding:8px 14px;text-align:center;
+  }
+
+  @media(max-width:880px){
+    .hero-inner{grid-template-columns:1fr;}
+    .grid3{grid-template-columns:1fr;}
+    .grid2{grid-template-columns:1fr;}
+    .compare-layout{grid-template-columns:1fr;}
+    .filter-panel{position:static;}
+    .checklist{grid-template-columns:1fr;}
+    .field-grid{grid-template-columns:1fr;}
+    nav.mainnav{width:100%;justify-content:flex-start;overflow-x:auto;}
+    .agency-contact-row{border-radius:12px;flex-direction:column;align-items:flex-start;gap:10px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-note">Demo prototype — agency names and packages below are sample placeholder data for layout purposes, not real submissions.</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">MH</div>
+      <div class="brand-text">MusafeerHub<small>Malaysia</small></div>
+    </div>
+    <nav class="mainnav" id="mainnav">
+      <button data-page="home" class="active">Home</button>
+      <button data-page="compare">Compare Packages</button>
+      <button data-page="agencies">Verified Agencies</button>
+      <button data-page="scam">Scam Prevention</button>
+      <button data-page="help">Help Desk</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<section class="page active" id="page-home">
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="hero-eyebrow">● Independent comparison platform — not a travel agency</span>
+        <h1>Compare Trusted Umrah Packages in One Place</h1>
+        <p class="lead">Compare prices, departure dates, hotel distances, flight details and package benefits from MOTAC-checked Umrah travel agencies in Malaysia.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-gold" onclick="goPage('compare')">Compare Packages</button>
+          <button class="btn btn-outline" onclick="goPage('agencies')">Check Licensed Agencies</button>
+        </div>
+      </div>
+      <div class="search-card">
+        <h3>Find My Umrah Package</h3>
+        <div class="field-grid">
+          <div class="field"><label>Departure Month</label>
+            <select id="s-month">
+              <option>Any month</option><option>September 2026</option><option>October 2026</option><option>November 2026</option><option>December 2026</option>
+            </select>
+          </div>
+          <div class="field"><label>Departure Airport</label>
+            <select id="s-airport"><option>Any airport</option><option>KLIA</option><option>Senai (Johor)</option><option>Penang</option><option>Kota Kinabalu</option></select>
+          </div>
+          <div class="field"><label>Budget per person (RM)</label>
+            <input type="text" id="s-budget" placeholder="e.g. 9000">
+          </div>
+          <div class="field"><label>Number of travellers</label>
+            <input type="text" id="s-travellers" placeholder="e.g. 2">
+          </div>
+          <div class="field"><label>Room type</label>
+            <select id="s-room"><option>Any</option><option>Quad</option><option>Triple</option><option>Double</option></select>
+          </div>
+          <div class="field"><label>Duration</label>
+            <select id="s-duration"><option>Any</option><option>9–10 days</option><option>11–12 days</option><option>13+ days</option></select>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="searchPackagesFromHome()">Search Packages</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="eyebrow">How we verify</span><h2>Every listing starts with an official record check</h2></div>
+      </div>
+      <div class="grid3">
+        <div class="pkg-card">
+          <div class="stamp"><span class="dot">✓</span>MOTAC Licence Verified</div>
+          <h4>1. Licence lookup</h4>
+          <p style="font-size:13.5px;color:var(--ink-soft);margin:0;">We check the agency against MOTAC's official licensed Umrah travel-agency directory before it is listed.</p>
+        </div>
+        <div class="pkg-card">
+          <div class="stamp"><span class="dot">✓</span>Advertisement Approved</div>
+          <h4>2. Advertisement check</h4>
+          <p style="font-size:13.5px;color:var(--ink-soft);margin:0;">Package advertisements are cross-checked against MOTAC's approved Umrah advertisement records.</p>
+        </div>
+        <div class="pkg-card">
+          <div class="stamp pending"><span class="dot">i</span>Info Confirmed</div>
+          <h4>3. Direct confirmation</h4>
+          <p style="font-size:13.5px;color:var(--ink-soft);margin:0;">Our team confirms phone numbers and package details directly with the agency, dated on every profile.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band band-alt">
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Popular right now</span><h2>Featured verified packages</h2></div>
+        <button class="btn btn-ghost btn-sm" onclick="goPage('compare')">View all packages →</button>
+      </div>
+      <div class="grid3" id="home-featured"></div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">FAQ</span><h2>Frequently asked questions</h2></div></div>
+      <div id="faq-list"></div>
+    </div>
+  </div>
+
+  <div class="band band-alt">
+    <div class="wrap">
+      <div class="disclaimer-box" id="home-disclaimer-snippet"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARE ============ -->
+<section class="page" id="page-compare">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">30 sample packages · 10 sample agencies</span><h2>Compare Packages</h2></div>
+      <div style="font-size:13px;color:var(--ink-soft);max-width:360px;">Filter it yourself, then select up to 4 packages to view side by side.</div>
+    </div>
+
+    <div class="compare-layout">
+      <div class="filter-panel">
+        <h4>Filter</h4>
+        <div class="filter-group">
+          <label class="fg-label">Sort by</label>
+          <select id="f-sort" onchange="renderPackages()">
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
+            <option value="date-asc">Earliest departure</option>
+            <option value="distance-asc">Nearest to Haram</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="fg-label">Price range (RM)</label>
+          <select id="f-price" onchange="renderPackages()">
+            <option value="0">Any price</option>
+            <option value="8000">Below RM8,000</option>
+            <option value="9000">Below RM9,000</option>
+            <option value="10000">Below RM10,000</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="fg-label">Departure airport</label>
+          <select id="f-airport" onchange="renderPackages()">
+            <option value="">Any airport</option>
+            <option>KLIA</option><option>Senai (Johor)</option><option>Penang</option><option>Kota Kinabalu</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="fg-label">Flight type</label>
+          <select id="f-flight" onchange="renderPackages()">
+            <option value="">Direct or transit</option><option>Direct</option><option>Transit</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="fg-label">Days</label>
+          <select id="f-days" onchange="renderPackages()">
+            <option value="">Any duration</option><option value="10">9–10 days</option><option value="12">11–12 days</option><option value="14">13+ days</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="fg-label">Agency</label>
+          <select id="f-agency" onchange="renderPackages()"><option value="">All agencies</option></select>
+        </div>
+        <div class="filter-group">
+          <label class="fg-label">Needs</label>
+          <div class="chip-row">
+            <button class="chip" data-need="ziarah" onclick="toggleChip(this)">Ziarah</button>
+            <button class="chip" data-need="wheelchair" onclick="toggleChip(this)">Wheelchair/Elderly</button>
+            <button class="chip" data-need="instalment" onclick="toggleChip(this)">Instalment</button>
+          </div>
+        </div>
+        <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;" onclick="resetFilters()">Reset filters</button>
+      </div>
+
+      <div>
+        <div class="pkg-grid" id="pkg-grid"></div>
+
+        <div class="compare-tray">
+          <div><strong id="selected-count">0</strong> packages selected for comparison (max 4)</div>
+          <button class="btn btn-gold btn-sm" onclick="showComparisonTable()">Compare Selected →</button>
+        </div>
+
+        <div id="comparison-table-wrap" style="margin-top:26px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AGENCIES ============ -->
+<section class="page" id="page-agencies">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">MOTAC-checked · sample data</span><h2>Verified Agencies</h2></div>
+      <div style="font-size:13px;color:var(--ink-soft);max-width:420px;">Every profile below is checked against MOTAC's official licensed Umrah travel-agency directory. Status is dated, not permanent — always re-check before paying.</div>
+    </div>
+    <div class="grid3" id="agency-grid"></div>
+  </div>
+</section>
+
+<!-- ============ SCAM PREVENTION ============ -->
+<section class="page" id="page-scam">
+  <div class="wrap">
+    <div class="scam-hero">
+      <span class="eyebrow" style="color:var(--brick);">Scam Prevention Centre</span>
+      <h2>Ten checks before you pay a single ringgit</h2>
+      <p style="margin:0;color:var(--ink-soft);font-size:14px;max-width:640px;">MOTAC has taken action against Umrah operators before, including licence suspension and cancellation. These checks take a few minutes and can save your entire trip.</p>
+    </div>
+    <ul class="checklist" id="scam-checklist"></ul>
+
+    <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;">
+      <a class="btn btn-primary" href="https://www.motac.gov.my" target="_blank" rel="noopener">Check MOTAC's Official Portal ↗</a>
+      <button class="btn btn-ghost" onclick="goPage('help')">Report a suspicious listing</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HELP DESK ============ -->
+<section class="page" id="page-help">
+  <div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">Help Desk</span><h2>Get help or ask a question</h2></div></div>
+
+    <div class="help-tabs">
+      <button class="help-tab active" data-help="contact" onclick="goHelp('contact')">Contact the Agency</button>
+      <button class="help-tab" data-help="ai" onclick="goHelp('ai')">AI Package Assistant</button>
+      <button class="help-tab" data-help="report" onclick="goHelp('report')">Report Incorrect Info</button>
+    </div>
+
+    <div class="help-panel active" id="help-contact">
+      <p style="font-size:13.5px;color:var(--ink-soft);max-width:560px;">Any questions about price, availability, dates or booking must go directly to the travel agency — MusafeerHub does not take payments or confirm bookings.</p>
+      <div class="agency-contact-list" id="agency-contact-list"></div>
+    </div>
+
+    <div class="help-panel" id="help-ai">
+      <p style="font-size:13.5px;color:var(--ink-soft);max-width:600px;margin-bottom:14px;">The assistant only answers using package information already on this website. It cannot confirm bookings, guarantee availability, or take payments.</p>
+      <div class="chat-window">
+        <div class="chat-log" id="chat-log">
+          <div class="msg bot">Assalamualaikum! Ask me things like "show packages below RM9000" or "which package has the nearest hotel to Masjid al-Haram".</div>
+        </div>
+        <div class="chat-suggestions">
+          <button onclick="askAI('Show packages below RM9000')">Below RM9,000</button>
+          <button onclick="askAI('Which package has the nearest hotel?')">Nearest hotel</button>
+          <button onclick="askAI('Find direct flights from KLIA')">Direct flights KLIA</button>
+          <button onclick="askAI('Which packages suit elderly travellers?')">Elderly-friendly</button>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" id="chat-input" placeholder="Type a question about packages..." onkeydown="if(event.key==='Enter')askAI()">
+          <button class="btn btn-primary btn-sm" onclick="askAI()">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="help-panel" id="help-report">
+      <form class="report-form" onsubmit="return submitReport(event)">
+        <div><label>What's wrong?</label>
+          <select required><option>Incorrect price</option><option>Expired package</option><option>Wrong customer-service number</option><option>Incorrect hotel details</option><option>Suspicious listing</option><option>Change in licence status</option></select>
+        </div>
+        <div><label>Agency or package name</label><input type="text" placeholder="e.g. Al-Hijrah Travel — Ramadan Ziarah 12D" required></div>
+        <div><label>Details</label><textarea placeholder="Tell us what you found and where" required></textarea></div>
+        <div><label>Your email (optional, for follow-up)</label><input type="text" placeholder="you@example.com"></div>
+        <button class="btn btn-gold" type="submit" style="width:fit-content;">Submit Report</button>
+        <div class="confirm-banner" id="report-confirm">✓ Thanks — your report has been logged for review by our admin team.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AGENCY MODAL ============ -->
+<div class="modal-overlay" id="agency-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- Toast element replacing native alerts -->
+<div class="toast-notification" id="toast"></div>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand-text" style="color:#fff;">MusafeerHub Malaysia</div>
+      <p style="max-width:360px;margin-top:8px;">Compare Clearly. Verify Carefully. Perform Umrah Confidently.</p>
+    </div>
+    <div>
+      <strong style="color:#fff;">Important</strong>
+      <p style="max-width:420px;margin-top:8px;">MusafeerHub Malaysia is an independent information and comparison platform. We are not a travel agency, tour operator or payment provider. See full <a href="#" onclick="goPage('home');setTimeout(()=>document.getElementById('home-disclaimer-snippet').scrollIntoView(),50);return false;">disclaimer</a> and <a href="https://www.motac.gov.my" target="_blank" rel="noopener">MOTAC official portal</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ================= SAMPLE DATA ================= */
+const agencies = [
+  {id:'a1', name:'Al-Hijrah Travel Sdn Bhd', brand:'Al-Hijrah Travel', reg:'MTC-0192837-K', licence:'KPK/LN 7261', licenceExpiry:'12 Mar 2027', address:'Lot 14, Jalan Ampang, 50450 Kuala Lumpur', branches:'Shah Alam, Johor Bahru', phone:'+60 3-2141 8890', whatsapp:'+60 12-345 6781', website:'alhijrahtravel.com.my', email:'info@alhijrahtravel.com.my', status:'verified', checked:'25 Jul 2026'},
+  {id:'a2', name:'Rehlah Mubarakah Travel & Tours', brand:'Rehlah Mubarakah', reg:'MTC-0287744-A', licence:'KPK/LN 6183', licenceExpiry:'02 Jun 2027', address:'No. 8, Jalan Tun Razak, 50400 Kuala Lumpur', branches:'Ipoh', phone:'+60 3-4041 2210', whatsapp:'+60 12-345 6782', website:'rehlahmubarakah.my', email:'hello@rehlahmubarakah.my', status:'verified', checked:'24 Jul 2026'},
+  {id:'a3', name:'Ziarah Barokah Holidays Sdn Bhd', brand:'Ziarah Barokah', reg:'MTC-0331920-D', licence:'KPK/LN 5502', licenceExpiry:'19 Sep 2026', address:'Suite 12-3, Menara UOA, 55100 Kuala Lumpur', branches:'Penang, Alor Setar', phone:'+60 4-262 7789', whatsapp:'+60 12-345 6783', website:'ziarahbarokah.com', email:'care@ziarahbarokah.com', status:'verified', checked:'25 Jul 2026'},
+  {id:'a4', name:'Cahaya Makkah Travel Sdn Bhd', brand:'Cahaya Makkah', reg:'MTC-0410551-M', licence:'KPK/LN 4499', licenceExpiry:'30 Nov 2026', address:'Jalan Sultan Ismail, 50250 Kuala Lumpur', branches:'Melaka', phone:'+60 6-283 4471', whatsapp:'+60 12-345 6784', website:'cahayamakkah.com.my', email:'support@cahayamakkah.com.my', status:'verified', checked:'23 Jul 2026'},
+  {id:'a5', name:'Al-Safar Umrah & Haj Sdn Bhd', brand:'Al-Safar', reg:'MTC-0552310-F', licence:'KPK/LN 3387', licenceExpiry:'14 Feb 2027', address:'Jalan Tuanku Abdul Rahman, 50100 Kuala Lumpur', branches:'Kota Bharu', phone:'+60 9-741 2298', whatsapp:'+60 12-345 6785', website:'alsafarumrah.com', email:'info@alsafarumrah.com', status:'verified', checked:'25 Jul 2026'},
+  {id:'a6', name:'Nur Kaabah Travel & Trading', brand:'Nur Kaabah', reg:'MTC-0673481-P', licence:'KPK/LN 2210', licenceExpiry:'08 Jan 2027', address:'Jalan Bukit Bintang, 55100 Kuala Lumpur', branches:'Kuantan', phone:'+60 9-566 1123', whatsapp:'+60 12-345 6786', website:'nurkaabah.my', email:'admin@nurkaabah.my', status:'verified', checked:'22 Jul 2026'},
+  {id:'a7', name:'Baitullah Voyage Sdn Bhd', brand:'Baitullah Voyage', reg:'MTC-0724456-T', licence:'KPK/LN 1876', licenceExpiry:'21 Aug 2026', address:'Jalan Kia Peng, 50450 Kuala Lumpur', branches:'Seremban', phone:'+60 6-761 9982', whatsapp:'+60 12-345 6787', website:'baitullahvoyage.com', email:'hello@baitullahvoyage.com', status:'verified', checked:'25 Jul 2026'},
+  {id:'a8', name:'Madani Umrah Services Sdn Bhd', brand:'Madani Umrah', reg:'MTC-0815520-W', licence:'KPK/LN 1145', licenceExpiry:'17 Dec 2026', address:'Jalan Raja Chulan, 50200 Kuala Lumpur', branches:'Kuching', phone:'+60 82-241 553', whatsapp:'+60 12-345 6788', website:'madaniumrah.com.my', email:'care@madaniumrah.com.my', status:'verified', checked:'21 Jul 2026'},
+  {id:'a9', name:'Tanah Suci Holidays Sdn Bhd', brand:'Tanah Suci Holidays', reg:'MTC-0902239-C', licence:'KPK/LN 0987', licenceExpiry:'05 Oct 2026', address:'Jalan Pudu, 55100 Kuala Lumpur', branches:'Sandakan', phone:'+60 89-221 774', whatsapp:'+60 12-345 6789', website:'tanahsuciholidays.my', email:'info@tanahsuciholidays.my', status:'verified', checked:'25 Jul 2026'},
+  {id:'a10', name:'Darul Haramain Travel Sdn Bhd', brand:'Darul Haramain', reg:'MTC-0988761-N', licence:'KPK/LN 0456', licenceExpiry:'26 Apr 2027', address:'Jalan Cheras, 56100 Kuala Lumpur', branches:'Miri', phone:'+60 85-332 118', whatsapp:'+60 12-345 6790', website:'darulharamain.com', email:'support@darulharamain.com', status:'verified', checked:'24 Jul 2026'},
+];
+
+const packages = [
+  {id:'p1',agency:'a1',name:'Ramadan Ziarah 12D',price:7990,promo:null,depart:'2026-10-10',days:12,airport:'KLIA',flight:'Direct',airline:'Saudia',makkahHotel:'Al Marwa Rayhaan',makkahDist:350,madinahHotel:'Dar Al Iman',madinahDist:250,room:'Quad',meals:'Full board',visa:true,mutawif:true,ziarah:true,wheelchair:false,instalment:true,updated:'2026-07-24'},
+  {id:'p2',agency:'a2',name:'Barokah Classic 12D',price:8590,promo:null,depart:'2026-10-15',days:12,airport:'KLIA',flight:'Transit',airline:'Malaysia Airlines',makkahHotel:'Hilton Suites',makkahDist:500,madinahHotel:'Madinah Hilton',madinahDist:400,room:'Triple',meals:'Breakfast only',visa:true,mutawif:true,ziarah:true,wheelchair:false,instalment:false,updated:'2026-07-23'},
+  {id:'p3',agency:'a3',name:'Cahaya Barokah 14D',price:9200,promo:null,depart:'2026-10-20',days:14,airport:'Senai (Johor)',flight:'Direct',airline:'Saudia',makkahHotel:'Swissotel Al Maqam',makkahDist:200,madinahHotel:'Anwar Al Madinah',madinahDist:150,room:'Quad',meals:'Full board',visa:true,mutawif:true,ziarah:true,wheelchair:true,instalment:true,updated:'2026-07-25'},
+  {id:'p4',agency:'a4',name:'Nur Cahaya Economy 10D',price:6890,promo:6490,depart:'2026-09-18',days:10,airport:'KLIA',flight:'Transit',airline:'AirAsia X',makkahHotel:'Elaf Al Mashaer',makkahDist:800,madinahHotel:'Durrat Al Eiman',madinahDist:600,room:'Quad',meals:'Breakfast only',visa:true,mutawif:true,ziarah:false,wheelchair:false,instalment:true,updated:'2026-07-20'},
+  {id:'p5',agency:'a5',name:'Al-Safar Premium 12D',price:10990,promo:null,depart:'2026-11-05',days:12,airport:'KLIA',flight:'Direct',airline:'Saudia',makkahHotel:'Raffles Makkah Palace',makkahDist:80,madinahHotel:'Oberoi Madinah',madinahDist:100,room:'Double',meals:'Full board',visa:true,mutawif:true,ziarah:true,wheelchair:true,instalment:false,updated:'2026-07-25'},
+  {id:'p6',agency:'a6',name:'Nur Kaabah Value 9D',price:6490,promo:null,depart:'2026-09-22',days:9,airport:'Penang',flight:'Transit',airline:'AirAsia X',makkahHotel:'Al Kiswah Towers',makkahDist:900,madinahHotel:'Al Eman Royal',madinahDist:700,room:'Quad',meals:'Breakfast only',visa:true,mutawif:false,ziarah:false,wheelchair:false,instalment:true,updated:'2026-07-19'},
+  {id:'p7',agency:'a7',name:'Baitullah Family 13D',price:8990,promo:null,depart:'2026-10-08',days:13,airport:'KLIA',flight:'Direct',airline:'Malaysia Airlines',makkahHotel:'Fairmont Clock Tower',makkahDist:100,madinahHotel:'Pullman Zamzam',madinahDist:200,room:'Quad',meals:'Full board',visa:true,mutawif:true,ziarah:true,wheelchair:true,instalment:true,updated:'2026-07-24'},
+  {id:'p8',agency:'a8',name:'Madani Barakah 11D',price:7590,promo:7290,depart:'2026-09-30',days:11,airport:'Kota Kinabalu',flight:'Transit',airline:'Saudia',makkahHotel:'Al Shohada',makkahDist:600,madinahHotel:'Al Aqeeq',madinahDist:450,room:'Triple',meals:'Full board',visa:true,mutawif:true,ziarah:true,wheelchair:false,instalment:true,updated:'2026-07-18'},
+  {id:'p9',agency:'a9',name:'Tanah Suci Bestari 12D',price:8290,promo:null,depart:'2026-10-25',days:12,airport:'KLIA',flight:'Direct',airline:'Saudia',makkahHotel:'Le Meridien Towers',makkahDist:300,madinahHotel:'Shaza Madinah',madinahDist:250,room:'Quad',meals:'Full board',visa:true,mutawif:true,ziarah:true,wheelchair:false,instalment:false,updated:'2026-07-22'},
+  {id:'p10',agency:'a10',name:'Darul Haramain Deluxe 12D',price:9890,promo:null,depart:'2026-11-12',days:12,airport:'KLIA',flight:'Direct',airline:'Emirates',makkahHotel:'Conrad Makkah',makkahDist:180,madinahHotel:'Movenpick Madinah',madinahDist:120,room:'Double',meals:'Full board',visa:true,mutawif:true,ziarah:true,wheelchair:true,instalment:false,updated:'2026-07-25'},
+  {id:'p11',agency:'a1',name:'Al-Hijrah Bestari 10D',price:7290,promo:null,depart:'2026-09-14',days:10,airport:'KLIA',flight:'Transit',airline:'AirAsia X',makkahHotel:'Al Marwa Rayhaan',makkahDist:350,madinahHotel:'Dar Al Iman',madinahDist:250,room:'Quad',meals:'Breakfast only',visa:true,mutawif:true,ziarah:false,wheelchair:false,instalment:true,updated:'2026-07-15'},
+  {id:'p12',agency:'a2',name:'Rehlah Elite 14D',price:11290,promo:null,depart:'2026-12-05',days:14,airport:'KLIA',flight:'Direct',airline:'Saudia',makkahHotel:'Hilton Suites',makkahDist:500,madinahHotel:'Madinah Hilton',madinahDist:400,room:'Double',meals:'Full board',visa:true,mutawif:true,ziarah:true,wheelchair:true,instalment:false,updated:'2026-07-21'},
+  {id:'p13',agency:'a3',name:'Ziarah Ekonomi 9D',price:6290,promo:null,depart:'2026-09-09',days:9,airport:'Senai (Johor)',flight:'Transit',airline:'AirAsia X',makkahHotel:'Swissotel Al Maqam',makkahDist:200,madinahHotel:'Anwar Al Madinah',madinahDist:150,room:'Quad',meals:'Breakfast only',visa:true,mutawif:false,ziarah:false,wheelchair:false,instalment:true,updated:'2026-07-11'},
+  {id:'p14',agency:'a4',name:'Cahaya Makkah Ziarah Plus 12D',price:8890,promo:null,depart:'2026-10-30',days:12,airport:'KLIA',flight:'Direct',airline:'Saudia',makkahHotel:'Elaf Al Mashaer',makkahDist:800,madinahHotel:'Durrat Al Eiman',madinahDist:600,room:'Triple',meals:'Full board',visa:true,mutawif:true,ziarah:true,wheelchair:false,instalment:true,updated:'2026-07-24'},
+  {id:'p15',agency:'a5',name:'Al-Safar Golden 12D',price:9990,promo:9490,depart:'2026-11-20',days:12,airport:'KLIA',flight:'Direct',airline:'Saudia',makkahHotel:'Raffles Makkah Palace',makkahDist:80,madinahHotel:'Oberoi Madinah',madinahDist:100,room:'Quad',meals:'Full board',visa:true,mutawif:true,ziarah:true,wheelchair:true,instalment:false,updated:'2026-07-25'},
+  {id:'p16',agency:'a6',name:'Nur Kaabah Junior 10D',price:7190,promo:null,depart:'2026-09-25',days:10,airport:'Penang',flight:'Transit',airline:'AirAsia X',makkahHotel:'Al Kiswah Towers',makkahDist:900,madinahHotel:'Al Eman Royal',madinahDist:700,room:'Triple',meals:'Breakfast only',visa:true,mutawif:true,ziarah:false,wheelchair:false,instalment:true,updated:'2026-07-16'},
+  {id:'p17',agency:'a7',name:'Baitullah Senior Care 12D',price:9490,promo:null,depart:'2026-10-18',days:12,airport:'KLIA',flight:'Direct',airline:'Malaysia Airlines',makkahHotel:'Fairmont Clock Tower',makkahDist:100,madinahHotel:'Pullman Zamzam',madinahDist:200,room:'Double',meals:'Full board',visa:true,mutawif:true,ziarah:true,wheelchair:true,instalment:true,updated:'2026-07-24'},
+  {id:'p18',agency:'a8',name:'Madani Ekonomi 9D',price:6790,promo:null,depart:'2026-09-11',days:9,airport:'Kota Kinabalu',flight:'Transit',airline:'Saudia',makkahHotel:'Al Shohada',makkahDist:600,madinahHotel:'Al Aqeeq',madinahDist:450,room:'Quad',meals:'Breakfast only',visa:true,mutawif:false,ziarah:false,wheelchair:false,instalment:true,updated:'2026-07-09'},
+  {id:'p19',agency:'a9',name:'Tanah Suci Istimewa 13D',price:9690,promo:null,depart:'2026-11-01',days:13,airport:'KLIA',flight:'Direct',airline:'Saudia',makkahHotel:'Le Meridien Towers',makkahDist:300,madinahHotel:'Shaza Madinah',madinahDist:250,room:'Triple',meals:'Full board',visa:true,mutawif:true,ziarah:true,wheelchair:false,instalment:false,updated:'2026-07-22'},
+  {id:'p20',agency:'a10',name:'Darul Haramain Ekonomi 10D',price:7490,promo:7090,depart:'2026-09-27',days:10,airport:'KLIA',flight:'Transit',airline:'AirAsia X',makkahHotel:'Conrad Makkah',makkahDist:180,madinahHotel:'Movenpick Madinah',madinahDist:120,room:'Quad',meals:'Breakfast only',visa:true,mutawif:true,ziarah:false,wheelchair:false,instalment:true,updated:'2026-07-14'},
+];
+
+const faqs = [
+  {q:'Is MusafeerHub a travel agency?', a:'No. MusafeerHub Malaysia is an independent comparison and information platform. We do not sell packages, collect payments, or represent any agency. You always book directly with the travel agency.'},
+  {q:'How do you verify an agency?', a:"We check each agency against MOTAC's official licensed Umrah travel-agency directory and, where available, MOTAC's approved advertisement records. Every badge shows the date it was last checked — licences can be suspended, cancelled or expire, so re-check before paying."},
+  {q:'Can I pay for my Umrah package on this website?', a:"No. MusafeerHub never collects booking payments. Always pay only into the travel agency's verified company bank account, never an individual's personal account."},
+  {q:'What if the price or hotel information looks wrong?', a:'Use the "Report Incorrect Info" option in the Help Desk. Our admin team reviews reports and updates or removes listings as needed.'},
+  {q:'Can agencies pay to get a verified badge?', a:'No. Verification depends only on official MOTAC records and our own confirmation process — it is never for sale. Sponsored listings, where they exist, are always clearly labelled and do not affect verification status.'},
+];
+
+const scamTips = [
+  "Check the company's MOTAC licence number before paying anything.",
+  'Confirm the licence is still valid, not expired or suspended.',
+  'Make sure the bank account belongs to the registered company, not an individual.',
+  'Never transfer money into a personal bank account, even if asked "for a quicker process."',
+  'Ask for an official receipt and a written agreement for every payment.',
+  'Confirm flight, hotel and visa details in writing before departure.',
+  'Be cautious of prices that are far cheaper than every other agency.',
+  'Contact the agency only through its official listed phone or WhatsApp number.',
+  'Check whether the Umrah advertisement itself has MOTAC approval.',
+  'Keep screenshots, receipts and all communication records until after your trip.',
+];
+
+/* ================= STATE ================= */
+let selectedPkgs = new Set();
+let activeChips = new Set();
+
+/* Custom Non-blocking Toast Notification */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  if(!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(window.toastTimer);
+  window.toastTimer = setTimeout(() => {
+    t.classList.remove('show');
+  }, 3200);
+}
+
+/* ================= NAV ================= */
+function goPage(page){
+  document.querySelectorAll('section.page').forEach(s=>s.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelectorAll('#mainnav button').forEach(b=>b.classList.toggle('active', b.dataset.page===page));
+  window.scrollTo({top:0,behavior:'instant'});
+}
+document.getElementById('mainnav').addEventListener('click', e=>{
+  if(e.target.dataset.page) goPage(e.target.dataset.page);
+});
+
+/* ================= HELPERS ================= */
+function agencyName(id){ const found = agencies.find(a=>a.id===id); return found ? found.brand : 'Agency'; }
+function fmtDate(d){ return new Date(d).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}); }
+function currency(n){ return 'RM' + n.toLocaleString('en-MY'); }
+
+function stampHTML(){
+  return '<div class="stamp"><span class="dot">✓</span>MOTAC Verified</div>';
+}
+
+/* ================= PACKAGE CARD ================= */
+function pkgCardHTML(p){
+  const selected = selectedPkgs.has(p.id);
+  return `<div class="pkg-card">
+    <div class="top-row">
+      <div>
+        <div class="agency-name">${agencyName(p.agency)}</div>
+        <h4>${p.name}</h4>
+      </div>
+      ${stampHTML()}
+    </div>
+    <div class="price">${p.promo?currency(p.promo):currency(p.price)} ${p.promo?`<small style="text-decoration:line-through;">${currency(p.price)}</small>`:''}<small> / pax</small></div>
+    <div class="meta-row">
+      <span class="tag">${fmtDate(p.depart)}</span>
+      <span class="tag">${p.days} days</span>
+      <span class="tag">${p.airport}</span>
+      <span class="tag alt">${p.flight}</span>
+      <span class="tag alt">${p.room}</span>
+    </div>
+    <div style="font-size:12px;color:var(--ink-soft);">Haram ${p.makkahDist}m · Nabawi ${p.madinahDist}m · ${p.meals}</div>
+    <div class="foot">
+      <label class="checkbox-select"><input type="checkbox" ${selected?'checked':''} onchange="toggleSelect('${p.id}')"> Compare</label>
+      <button class="btn btn-ghost btn-sm" onclick="viewAgencyById('${p.agency}')">View agency</button>
+    </div>
+  </div>`;
+}
+
+function toggleSelect(id){
+  if(selectedPkgs.has(id)) selectedPkgs.delete(id);
+  else {
+    if(selectedPkgs.size>=4){ 
+      showToast('You can compare up to 4 packages at a time.'); 
+      renderPackages(); 
+      return; 
+    }
+    selectedPkgs.add(id);
+  }
+  document.getElementById('selected-count').textContent = selectedPkgs.size;
+  renderPackages();
+}
+
+function toggleChip(el){
+  const need = el.dataset.need;
+  if(activeChips.has(need)){ activeChips.delete(need); el.classList.remove('on'); }
+  else { activeChips.add(need); el.classList.add('on'); }
+  renderPackages();
+}
+
+function resetFilters(){
+  document.getElementById('f-sort').value='price-asc';
+  document.getElementById('f-price').value='0';
+  document.getElementById('f-airport').value='';
+  document.getElementById('f-flight').value='';
+  document.getElementById('f-days').value='';
+  document.getElementById('f-agency').value='';
+  activeChips.clear();
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  renderPackages();
+}
+
+function searchPackagesFromHome(){
+  const airport = document.getElementById('s-airport').value;
+  const budget = document.getElementById('s-budget').value.trim();
+  const room = document.getElementById('s-room').value;
+  const duration = document.getElementById('s-duration').value;
+
+  if(airport && airport !== 'Any airport') {
+    document.getElementById('f-airport').value = airport;
+  }
+  if(budget && !isNaN(budget)) {
+    const val = parseInt(budget);
+    if(val <= 8000) document.getElementById('f-price').value = '8000';
+    else if(val <= 9000) document.getElementById('f-price').value = '9000';
+    else if(val <= 10000) document.getElementById('f-price').value = '10000';
+    else document.getElementById('f-price').value = '0';
+  }
+  if(duration && duration !== 'Any') {
+    if(duration.includes('9–10')) document.getElementById('f-days').value = '10';
+    else if(duration.includes('11–12')) document.getElementById('f-days').value = '12';
+    else if(duration.includes('13+')) document.getElementById('f-days').value = '14';
+  }
+
+  goPage('compare');
+  renderPackages();
+}
+
+function renderPackages(){
+  let list = [...packages];
+  const priceMax = parseInt(document.getElementById('f-price').value);
+  const airport = document.getElementById('f-airport').value;
+  const flight = document.getElementById('f-flight').value;
+  const days = document.getElementById('f-days').value;
+  const agency = document.getElementById('f-agency').value;
+  const sort = document.getElementById('f-sort').value;
+
+  if(priceMax) list = list.filter(p=>(p.promo||p.price) <= priceMax);
+  if(airport) list = list.filter(p=>p.airport===airport);
+  if(flight) list = list.filter(p=>p.flight===flight);
+  if(days==='10') list = list.filter(p=>p.days<=10);
+  if(days==='12') list = list.filter(p=>p.days>10 && p.days<=12);
+  if(days==='14') list = list.filter(p=>p.days>12);
+  if(agency) list = list.filter(p=>p.agency===agency);
+  if(activeChips.has('ziarah')) list = list.filter(p=>p.ziarah);
+  if(activeChips.has('wheelchair')) list = list.filter(p=>p.wheelchair);
+  if(activeChips.has('instalment')) list = list.filter(p=>p.instalment);
+
+  if(sort==='price-asc') list.sort((a,b)=>(a.promo||a.price)-(b.promo||b.price));
+  if(sort==='price-desc') list.sort((a,b)=>(b.promo||b.price)-(a.promo||a.price));
+  if(sort==='date-asc') list.sort((a,b)=>new Date(a.depart)-new Date(b.depart));
+  if(sort==='distance-asc') list.sort((a,b)=>a.makkahDist-b.makkahDist);
+
+  document.getElementById('pkg-grid').innerHTML = list.map(p=>pkgCardHTML(p)).join('') || '<p style="color:var(--ink-soft);padding:12px;">No packages match these filters yet.</p>';
+  document.getElementById('selected-count').textContent = selectedPkgs.size;
+}
+
+function showComparisonTable(){
+  const wrap = document.getElementById('comparison-table-wrap');
+  if(selectedPkgs.size===0){ 
+    wrap.innerHTML=''; 
+    showToast('Select at least one package to compare.'); 
+    return; 
+  }
+  const list = [...selectedPkgs].map(id=>packages.find(p=>p.id===id));
+  const rows = [
+    ['Travel agency', p=>agencyName(p.agency)],
+    ['Package name', p=>p.name],
+    ['Price', p=>p.promo?`${currency(p.promo)} (was ${currency(p.price)})`:currency(p.price)],
+    ['Departure date', p=>fmtDate(p.depart)],
+    ['Duration', p=>p.days+' days'],
+    ['Airport', p=>p.airport],
+    ['Flight', p=>p.flight+' · '+p.airline],
+    ['Makkah hotel', p=>p.makkahHotel],
+    ['Distance to Haram', p=>p.makkahDist+' m'],
+    ['Madinah hotel', p=>p.madinahHotel],
+    ['Distance to Nabawi', p=>p.madinahDist+' m'],
+    ['Room type', p=>p.room],
+    ['Meals', p=>p.meals],
+    ['Visa / Mutawif / Ziarah', p=>[p.visa?'Visa':'',p.mutawif?'Mutawif':'',p.ziarah?'Ziarah':''].filter(Boolean).join(', ')||'—'],
+    ['Wheelchair support', p=>p.wheelchair?'Yes':'No'],
+    ['Instalment available', p=>p.instalment?'Yes':'No'],
+    ['MOTAC status', p=>'Verified'],
+    ['Last updated', p=>fmtDate(p.updated)],
+  ];
+  let html = '<div class="ledger-wrap"><table class="ledger"><thead><tr><th>Category</th>' + list.map(p=>`<th>${p.name}</th>`).join('') + '</tr></thead><tbody>';
+  rows.forEach(([label,fn])=>{
+    html += `<tr><td>${label}</td>` + list.map(p=>`<td>${fn(p)}</td>`).join('') + '</tr>';
+  });
+  html += '</tbody></table></div>';
+  wrap.innerHTML = html;
+  wrap.scrollIntoView({behavior:'smooth'});
+}
+
+/* Populate agency filter dropdown */
+function populateAgencyFilter(){
+  const sel = document.getElementById('f-agency');
+  agencies.forEach(a=>{
+    const opt = document.createElement('option');
+    opt.value=a.id; opt.textContent=a.brand;
+    sel.appendChild(opt);
+  });
+}
+
+/* ================= AGENCIES PAGE ================= */
+function renderAgencies(){
+  document.getElementById('agency-grid').innerHTML = agencies.map(a=>`
+    <div class="agency-card" onclick="viewAgencyById('${a.id}')">
+      <div class="agency-logo">${a.brand.split(' ').map(w=>w[0]).slice(0,2).join('')}</div>
+      <h4 style="font-size:16px;">${a.brand}</h4>
+      <div style="font-size:12.5px;color:var(--ink-soft);">${a.name}</div>
+      <div class="stamp"><span class="dot">✓</span>MOTAC Licence Verified</div>
+      <div class="stamp-date">Last checked: ${a.checked}</div>
+      <div style="font-size:12.5px;color:var(--ink-soft);margin-top:auto;">${packages.filter(p=>p.agency===a.id).length} packages listed</div>
+    </div>
+  `).join('');
+}
+
+function viewAgencyById(id){
+  const a = agencies.find(x=>x.id===id);
+  if(!a) return;
+  document.getElementById('modal-content').innerHTML = `
+    <div class="stamp"><span class="dot">✓</span>MOTAC Licence Verified</div>
+    <h3 style="margin-top:10px;">${a.name}</h3>
+    <div style="font-size:13px;color:var(--ink-soft);">Brand name: ${a.brand}</div>
+    <div class="detail-grid">
+      <div class="detail-item"><label>Company reg. no.</label><div class="mono">${a.reg}</div></div>
+      <div class="detail-item"><label>MOTAC licence no.</label><div class="mono">${a.licence}</div></div>
+      <div class="detail-item"><label>Licence validity</label><div>Until ${a.licenceExpiry}</div></div>
+      <div class="detail-item"><label>Licence last checked</label><div>${a.checked}</div></div>
+      <div class="detail-item"><label>Head office</label><div>${a.address}</div></div>
+      <div class="detail-item"><label>Branches</label><div>${a.branches}</div></div>
+      <div class="detail-item"><label>Official website</label><div>${a.website}</div></div>
+      <div class="detail-item"><label>Official email</label><div>${a.email}</div></div>
+    </div>
+    <div class="contact-row">
+      <a class="btn btn-primary btn-sm" href="tel:${a.phone}">📞 Call ${a.phone}</a>
+      <a class="btn btn-gold btn-sm" href="https://wa.me/${a.whatsapp.replace(/[^0-9]/g,'')}" target="_blank" rel="noopener">💬 WhatsApp</a>
+      <a class="btn btn-ghost btn-sm" href="https://${a.website}" target="_blank" rel="noopener">🌐 Website</a>
+    </div>
+    <p style="font-size:11.5px;color:var(--ink-soft);margin-top:14px;">This status reflects MOTAC's official records as last checked on the date above. It is not a permanent guarantee — always confirm directly with MOTAC before paying.</p>
+  `;
+  document.getElementById('agency-modal').classList.add('active');
+}
+function closeModal(){ document.getElementById('agency-modal').classList.remove('active'); }
+document.getElementById('agency-modal').addEventListener('click', e=>{ if(e.target.id==='agency-modal') closeModal(); });
+
+/* ================= HOME: featured + faq + disclaimer ================= */
+function renderHomeFeatured(){
+  const featured = [...packages].sort((a,b)=>(a.promo||a.price)-(b.promo||b.price)).slice(0,3);
+  document.getElementById('home-featured').innerHTML = featured.map(p=>pkgCardHTML(p)).join('');
+}
+function renderFaq(){
+  document.getElementById('faq-list').innerHTML = faqs.map((f,i)=>`
+    <div class="faq-item" id="faq-${i}">
+      <div class="faq-q" onclick="toggleFaq(${i})"><span>${f.q}</span><span>+</span></div>
+      <div class="faq-a">${f.a}</div>
+    </div>`).join('');
+}
+function toggleFaq(i){ document.getElementById('faq-'+i).classList.toggle('open'); }
+
+function renderDisclaimerSnippet(){
+  document.getElementById('home-disclaimer-snippet').innerHTML = `
+    <strong>Disclaimer.</strong> MusafeerHub Malaysia is an independent information and package-comparison platform.
+    We are not an Umrah travel agency, tour operator, payment provider, or representative of any listed agency.
+    Prices, dates, hotel details and availability are provided by the respective agencies and may change without notice.
+    Always confirm the latest details directly with the agency, and verify its MOTAC licence and company bank account before making any payment.
+    A "MOTAC Licence Verified" badge reflects official records as last checked, and is not a permanent guarantee or endorsement by MusafeerHub Malaysia.`;
+}
+
+/* ================= SCAM CHECKLIST ================= */
+function renderScamChecklist(){
+  document.getElementById('scam-checklist').innerHTML = scamTips.map((t,i)=>`<li><span class="num">${String(i+1).padStart(2,'0')}</span><span>${t}</span></li>`).join('');
+}
+
+/* ================= HELP DESK ================= */
+function goHelp(tab){
+  document.querySelectorAll('.help-tab').forEach(b=>b.classList.toggle('active', b.dataset.help===tab));
+  document.querySelectorAll('.help-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('help-'+tab).classList.add('active');
+}
+function renderAgencyContacts(){
+  document.getElementById('agency-contact-list').innerHTML = agencies.map(a=>`
+    <div class="agency-contact-row">
+      <div><strong>${a.brand}</strong><div style="color:var(--ink-soft);font-size:12px;">Licence ${a.licence} · valid till ${a.licenceExpiry}</div></div>
+      <div style="display:flex;gap:8px;">
+        <a class="btn btn-primary btn-sm" href="tel:${a.phone}">Call</a>
+        <a class="btn btn-gold btn-sm" href="https://wa.me/${a.whatsapp.replace(/[^0-9]/g,'')}" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>`).join('');
+}
+function submitReport(e){
+  e.preventDefault();
+  document.getElementById('report-confirm').style.display='block';
+  e.target.reset();
+  return false;
+}
+
+/* ================= AI ASSISTANT (rule-based, local data only) ================= */
+function addMsg(text, who){
+  const log = document.getElementById('chat-log');
+  const div = document.createElement('div');
+  div.className = 'msg '+who;
+  div.innerHTML = text;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
+function askAI(preset){
+  const input = document.getElementById('chat-input');
+  const q = (preset || input.value || '').trim();
+  if(!q) return;
+  addMsg(q, 'user');
+  input.value='';
+  setTimeout(()=>{ addMsg(answerAI(q), 'bot'); }, 350);
+}
+function answerAI(q){
+  const lower = q.toLowerCase();
+  const priceMatch = lower.match(/(rm)?\s?(\d{4,6})/);
+  if(lower.includes('below') && priceMatch){
+    const max = parseInt(priceMatch[2]);
+    const list = packages.filter(p=>(p.promo||p.price)<max).sort((a,b)=>(a.promo||a.price)-(b.promo||b.price)).slice(0,5);
+    if(!list.length) return `I couldn't find packages below RM${max} in our current listings. Try a higher budget or check the Compare page for the full list.`;
+    return `Here are packages below RM${max}:<br>` + list.map(p=>`• ${p.name} (${agencyName(p.agency)}) — ${currency(p.promo||p.price)}`).join('<br>');
+  }
+  if(lower.includes('nearest') || (lower.includes('near') && lower.includes('hotel'))){
+    const p = [...packages].sort((a,b)=>a.makkahDist-b.makkahDist)[0];
+    return `${p.name} by ${agencyName(p.agency)} has the nearest Makkah hotel — only ${p.makkahDist}m from Masjid al-Haram, priced at ${currency(p.promo||p.price)}.`;
+  }
+  if(lower.includes('direct') && lower.includes('flight')){
+    const airportMatch = lower.match(/klia|senai|penang|kota kinabalu/);
+    const airport = airportMatch ? (airportMatch[0]==='klia'?'KLIA':airportMatch[0]) : null;
+    let list = packages.filter(p=>p.flight==='Direct');
+    if(airport) list = list.filter(p=>p.airport.toLowerCase().includes(airport));
+    list = list.slice(0,5);
+    if(!list.length) return `No direct-flight packages found${airport?' from '+airport:''} right now.`;
+    return `Direct flight packages${airport?' from '+airport:''}:<br>` + list.map(p=>`• ${p.name} (${agencyName(p.agency)}) — ${p.airline}, ${currency(p.promo||p.price)}`).join('<br>');
+  }
+  if(lower.includes('elderly') || lower.includes('wheelchair')){
+    const list = packages.filter(p=>p.wheelchair).slice(0,5);
+    return `Packages with wheelchair / elderly support:<br>` + list.map(p=>`• ${p.name} (${agencyName(p.agency)}) — ${currency(p.promo||p.price)}`).join('<br>');
+  }
+  if(lower.includes('december')){
+    const list = packages.filter(p=>p.depart.startsWith('2026-12'));
+    if(!list.length) return `We don't have December packages listed yet — try October or November, or check back as agencies update listings.`;
+    return `December packages:<br>` + list.map(p=>`• ${p.name} (${agencyName(p.agency)}) — ${currency(p.promo||p.price)}`).join('<br>');
+  }
+  return `I can only answer using package info on this site — try asking about price, dates, hotel distance, flights, or specific needs like wheelchair support. For booking or availability questions, please contact the agency directly through the Contact tab.`;
+}
+
+/* ================= INIT ================= */
+window.onload = function(){
+  populateAgencyFilter();
+  renderPackages();
+  renderAgencies();
+  renderHomeFeatured();
+  renderFaq();
+  renderDisclaimerSnippet();
+  renderScamChecklist();
+  renderAgencyContacts();
+};
+</script>
+</body>
+</html>
